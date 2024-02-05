@@ -22,9 +22,9 @@ public sealed class Worker
         while (!token.IsCancellationRequested)
         {
             if (await _zooKeeperClient.IsLeaderAsync(serviceName))
-                Console.WriteLine($"[{serviceName}] [{DateTime.Now}]: I did something useful");
+                Console.WriteLine($"[{serviceName}] [{DateTime.Now}]: I do the work");
             else 
-                Console.WriteLine($"[{serviceName}] [{DateTime.Now}]: Sorry, I did nothing");
+                Console.WriteLine($"[{serviceName}] [{DateTime.Now}]: Im just waiting");
             await Task.Delay(10000, token);
         }
     }
